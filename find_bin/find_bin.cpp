@@ -32,7 +32,7 @@ int searchVector(const vector<T>& vec, T& item) {
 
 int main() {
     std::random_device rd;
-    std::default_random_engine eng(rd());
+    std::mt19937 eng(rd());
     std::uniform_int_distribution<int> distr(MIN, MAX);
 
     std::vector<int> vec;
@@ -49,6 +49,12 @@ int main() {
             cout << "did not, ";
     }
     cout << endl;
+
+    for (auto& item : vec2) {
+        std::find(vec.begin(), vec.end(), item) != vec.end() ?
+            cout << "found, " :
+            cout << "did not, ";
+    }
 
     return EXIT_SUCCESS;
 }
